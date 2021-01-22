@@ -1,0 +1,37 @@
+{
+  "name": "scream",
+  "version": "1.0.0",
+  "description": "Scream is an App to Scream hahahaha",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "scream"
+  ],
+  "author": "Ahmed Ibrahim",
+  "license": "ISC",
+  "dependencies": {
+    "@webpack-cli/init": "^1.1.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.19.0",
+    "css-loader": "^5.0.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.13",
+    "multer": "^1.4.2",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.1",
+    "sha1": "^1.1.1",
+    "style-loader": "^2.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.17.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

@@ -1,0 +1,41 @@
+<%- include('../main/header'); %>
+
+<%- include('../components/navbar'); %>
+
+
+<section class="contain" style="margin-top:30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div id="posts">
+                    <% if(typeof messages !== 'undefined' && messages.length > 0){ %>
+                        <% for(message of messages){ %>
+                            <div class="post">
+                                <span class="qu" style="word-break: break-all">
+                                        <%= message.messageText %>
+                                </span>
+                                <span class="time">
+                                        <%= message.created_at %> 
+                                        <span class="username"><% if(typeof message.userFromName != 'undefined') { %> @<%= message.userFromName %> <% } %></span>
+                                </span>
+                                <div class="options">
+                                    <i class="fa fa-comment comment"></i>
+                                </div>
+                                <div class="comment-area" style="display:none">
+                                    <form action="/reply_message/<%= message.id %>" method="POST">
+                                        <textarea name="comment" placeholder="Write your Comment"></textarea>
+                                        <button>Publish</button>
+                                    </form>
+                                </div>
+                                <hr>
+                            </div>                    
+                        <% } %>
+                    <% } else { %>
+                        <span style="text-align: center;font-weight: bold;font-size: 25px">You Have no Messages</span>
+                    <% } %>
+                </div>
+            </div>    
+        </div>
+    </div>
+</section>
+<%- include('../main/footer'); %>

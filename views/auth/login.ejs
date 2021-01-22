@@ -1,0 +1,48 @@
+<%- include('../main/header'); %>
+
+<div class="background login">
+    <%- include('../auth/auth_nav'); %>
+    <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+            <div class="left-side-login">
+                <div class="left-side-messages">
+                    <h3><i class="fa fa-users"></i> Scream People.</h3>
+                    <h3><i class="fa fa-user"></i> Receive Messages from People</h3>
+                    <h3><i class="fa fa-get-pocket"></i> Secure Website</h3>        
+                </div>            
+            </div>
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 login-panel">
+            <h1>Login Here <i class="fa fa-arrow-down"></i></h1>
+            <p>Login now to Receive Messages from People and Scream, Chat with them!</p>
+            <% if(typeof successLogin != 'undefined') { %>
+                <div class="alert alert-success">
+                    Success you registered your Accout with <%= username %> as username!
+                </div>
+            <% } %>
+            <% if(typeof errors != 'undefined'){ %>
+                <% errors.forEach((error) => { %>
+                    <div class="alert alert-danger">
+                        <%= error %>
+                    </div>        
+                <% }) %>
+            <% } %>
+            <form action="/login" method="POST">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input <% if(typeof username != 'undefined'){ %> value="<%= username %>" <% } %> name="username" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <input <% if(typeof password != 'undefined'){ %> value="<%= password %>" <% } %> name="password" type="password" style="width:100%" class="form-control" placeholder="Password" aria-label="Password">                    
+                </div>
+                <div class="input-group mb-3">
+                    <input type="submit" style="width:100%" class="form-control" value="Login Here!">                    
+                </div>
+                <a href="/register">Don't Have acc? Register Now</a>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('../main/footer'); %>

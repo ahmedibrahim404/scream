@@ -1,0 +1,100 @@
+<%- include('../main/header'); %>
+
+<%- include('../components/navbar'); %>
+
+<% if (typeof userToSend !== 'undefined' && !same){ %>
+    <div class="send_message">
+        <div class="black_lay"></div>
+        <div class="contain">
+            <button>X</button>
+            <form action="/message/<%= userToSend.id %>" method="POST">
+                <textarea name="message" placeholder="Ask <%= userToSend.username %>"></textarea><br>
+                <input type="submit" value="Message" />    
+            </form>        
+        </div>
+    </div>                
+<% } %>      
+
+<section class="home">
+    <div class="container">
+        <div class="user-inf" style="text-align:center;margin-bottom:10px;">
+            <% if (typeof userToSend !== 'undefined'){ %><span>@<%= userToSend.username %></span>  <% } %>      
+            <% if (typeof user !== 'undefined'){ %><span>@<%= user.username %></span>  <% } %>      
+        </div>    
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 profile-img">
+                <% if(userToSend.profile_img==true) { %>
+                    <img src="/storage/user_imgs/<%= userToSend.username %>.png" alt="">
+                <% } else { %>
+                    <img src="http://placehold.it/200/200" alt="">
+                <% } %>
+            </div>
+            <div class="col-xl-6 col-lg-6 d-none d-sm-none d-md-none d-lg-block profile-information">
+                <ul id="prof-inf">
+                    <li>Followers <span>500</span></li>
+                    <li>Following <span>500</span></li>
+                    <li>Likes <span>500</span></li>
+                </ul>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-9 col-sm-9 edit-profile-btn">
+                <% if (typeof userToSend !== 'undefined' && !same){ %> <button id="send_message">Ask</button>  <% } %>      
+                <% if (typeof userToSend !== 'undefined' && same){ %> <button id="send_message">Settings</button>  <% } %>      
+
+                <% if (typeof user !== 'undefined'){ %><button>Edit Profile</button><% } %>      
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contain" style="margin-top:30px;">
+    <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-3 d-none d-sm-none d-md-block">
+            <section class="people-know">
+                <p>People you might know!</p>
+                <div class="user">
+                    <img src="http://placehold.it/50/50" alt="">
+                    <span style="text-align: center">Ahmed Ibrahim</span>
+                    <button ><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>        
+                    <hr>
+                </div>
+                <div class="user">
+                    <img src="http://placehold.it/50/50" alt="">
+                    <span style="text-align: center">Ahmed Ibrahim</span>
+                    <button ><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>        
+                    <hr>
+                </div>
+                <div class="user">
+                    <img src="http://placehold.it/50/50" alt="">
+                    <span style="text-align: center">Ahmed Ibrahim</span>
+                    <button ><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>        
+                    <hr>
+                </div>
+            </section>
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div id="posts">
+                <% if(typeof posts !== 'undefined') { %>
+                    <% posts.reverse() %>
+                    <% for(post of posts) { %>
+                        <div class="post">
+                            <span class="qu" style="word-break: break-all">
+                                <%= post.messageText %>
+                            </span>
+                            <span class="time">
+                                <%= post.created_at %> Ago
+                            </span>
+                            <span class="an" style="word-break: break-all">
+                                <%= post.messageReply %>
+                            </span>
+                            <div class="options">
+                                <i class="fa fa-heart-o"></i>
+                            </div>
+                            <hr>
+                        </div>            
+                    <% } %>
+                <% } %>
+            </div>
+        </div>    
+    </div>
+</section>
+
+<%- include('../main/footer'); %>

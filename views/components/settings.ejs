@@ -1,0 +1,168 @@
+<%- include('../main/header'); %>
+
+<%- include('../components/navbar'); %>
+
+
+<section class="settings">
+    <div class="pop" style="display: none">
+        <div class="overlay"></div>
+        <div class="popup">
+            <span id="close">X</span>
+            <span id="logo">Scream</span>
+            <div class="contain" style="padding:15px">
+                <div data="username">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                        </div>
+                        <input type="text" class="form-control changeUser" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>       
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Old Password</span>
+                        </div>
+                        <input type="text" class="form-control oldPassword" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <button class="btn btn-primary change-profile" data="username">Save</button>                               
+                </div>
+                <div data="image">
+                    <img style="width:100px;height:100px" class="cur-profile" src="https://placehold.it/100/100" alt="">
+
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input upload-img-file" id="inputGroupFile02">
+                            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary upload-img">Save</button>                               
+                </div>
+                <div data="email">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control changeUser" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">@example.com</span>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Current Password</span>
+                        </div>
+                        <input type="text" class="form-control oldPassword" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <button class="btn btn-primary change-profile" data="email">Save</button>                               
+                </div>
+                <div data="password">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+                        </div>
+                        <input type="text" class="form-control changeUser" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Old Password</span>
+                        </div>
+                        <input type="text" class="form-control oldPassword" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <button class="btn btn-primary change-profile" data="password">Save</button>                               
+                </div>
+            </div>
+        </div>                
+    </div>
+    <header>
+        <ul>
+            <li class="active" dataTo="general">
+                <i class="fa fa-user"></i><br>
+                <span>General Settings</span>
+            </li>            
+            <li dataTo="privacy">
+                <i class="fa fa-cog"></i><br>
+                <span>Privacy Settings</span>
+            </li>
+        </ul>
+    </header>
+    <div class="container">
+        <div class="general">
+            <table class="table" >
+                <thead>
+                    <tr>
+                        <th scope="col">Option</th>
+                        <th scope="col" class="hide-small">Value</th>
+                        <th scope="col" style="text-align: center">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Image</th>
+                        <% if(typeof(isImg) != 'undefined' && isImg) { %>
+                            <td class="hide-small"><img class="cur-profile" src="/storage/user_imgs/<%= username %>.png" style="width: 50px;height: 50px;"></td>
+                        <% } else { %>
+                            <td class="hide-small"><img class="cur-profile" src="https://placehold.it/45/45" style="width: 50px;height: 50px;"></td>
+                        <% } %>
+                        <td style="text-align: center"><button data='image' class="btn btn-primary" style="width:110px;height:50px;">Edit</button></td>
+                    </tr>        
+                    <tr>
+                        <th>Username</th>
+                        <% if(typeof username != 'undefined'){ %>
+                        <td class="hide-small"><%= username %></td>
+                        <% } %>
+                        <td style="text-align: center"><button data='username' class="btn btn-primary" style="width:110px;height:50px;">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                            <% if(typeof email != 'undefined'){ %>
+                                <td class="hide-small"><%= email %></td>
+                            <% } %>
+                            <td style="text-align: center"><button data='email' class="btn btn-primary" style="width:110px;height:50px;">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td class="hide-small">*********************</td>
+                        <td style="text-align: center"><button data='password' class="btn btn-primary" style="width:110px;height:50px;">Edit</button></td>
+                    </tr>
+                </tbody>     
+            </table>                      
+        </div>
+        <div class="privacy" style="display: none">
+            <table class="table" >
+                <thead>
+                    <tr>
+                        <th scope="col">Option</th>
+                        <th scope="col">Value</th>
+                        <th class="hide-small" scope="col" style="text-align: center">Option</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr>
+                        <th>Who Can Like Me</th>
+                        <td>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="inputGroupSelect02">
+                                    <option selected value="1">Everyone.</option>
+                                    <option value="2">Followers</option>
+                                    <option value="3">Following</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td class="hide-small" style="text-align: center"><button data='likeme' class="btn btn-primary" style="width:110px;height:50px;">Save</button></td>
+                    </tr>        
+                    <tr>
+                        <th>Who Can Send Me Message</th>
+                        <td>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="inputGroupSelect02">
+                                    <option selected value="1">Everyone.</option>
+                                    <option value="2">Followers</option>
+                                    <option value="3">Following</option>
+                                </select>
+                            </div>
+                            </td>        
+                        <td class="hide-small" style="text-align: center"><button data='postme' class="btn btn-primary" style="width:110px;height:50px;">Save</button></td>
+                    </tr>
+                </tbody>     
+            </table>                              
+        </div>
+    </div>
+</section>
+
+<%- include('../main/footer'); %>

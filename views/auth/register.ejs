@@ -1,0 +1,49 @@
+<%- include('../main/header'); %>
+<%- include('../auth/auth_nav'); %>
+
+<div id="modal" class="modal">
+    <section class="register">
+        <div class="container">
+            <div class="modal-register">
+                <form action="/register" method="POST">
+                    <div class="contain-items">
+                        <span>X</span>
+                        <div class="step-1">
+                            <h3>Hello to Scream Me!</h3>
+                            <span>Register Here <i class="fa fa-arrow-down"></i></span><br>
+                            
+                            <% if(typeof error !== 'undefined'){ %>
+                                <span>Username or Email already in!</span>
+                            <% } %>
+                            
+                            
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">@</span>
+                                </div>
+                                <input name="user" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input name="email" type="email" style="width:100%" class="form-control" placeholder="Email" aria-label="Email">                    
+                            </div>
+                            <span id="toggleSection" onclick="javascript:void(0)">Next</span>
+                        </div>
+                        <div class="step-2" style="display:none">
+                            <input type="hidden" value="<%= token %>" name="token" />
+                            <div class="input-group mb-3">
+                                <input name="password" type="password" class="form-control" placeholder="Password" aria-label="password" >
+                            </div>
+                            <div class="input-group mb-3">
+                                <input name="re-password" type="password" class="form-control" placeholder="Re Password" aria-label="password" >
+                            </div>    
+                            <input type="submit" id="register_btn" value="Register" />        
+                        </div>
+                    </div>
+                </form>                
+            </div>                            
+        </div>
+    </section>              
+</div>
+        
+
+<%- include('../main/footer'); %>

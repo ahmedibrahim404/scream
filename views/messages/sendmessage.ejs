@@ -1,0 +1,21 @@
+<% include main/header %>
+
+<% include components/navbar %>
+<section class="send-message">
+    <div class="container">
+        <% if (typeof error != 'undefined'){ %>
+            <h1>Send message to <%= error %> </h1>
+        <% } else { %>
+            <div class="messageArea">
+                <form action="/message/<%= idtoSend %>" method="POST">
+                    <h1>Send message to <%= usertoSend %> </h1>
+                    <textarea name="message" placeholder="Ask <%= usertoSend %>"></textarea><br>
+                    <input type="submit" value="Message" />    
+                </form>
+            </div>
+        <% } %>
+    </div>            
+</section>
+
+
+<% include main/footer %>

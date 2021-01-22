@@ -1,0 +1,90 @@
+<nav id="top-navbar">
+    <i class="fa fa-bars"></i>
+    <span class="pull-right">
+            <% if(typeof username != 'undefined'){ %>
+                Hello,  <%= username %>
+            <% } else { %>
+                Login or Register!
+            <% } %>
+    </span>
+</nav>
+
+<nav id="main-navbar">
+    <% if(typeof username != 'undefined'){ %>
+
+    <!-- If Logged in -->
+    <header>
+        <img id="profile-img" src="https://placehold.it/150/150" />
+        <hr>
+        <span id="username"><%= username %></span><br>
+        <span id="bio">Live Your Life ^</span>
+    </header>
+    <div id="contain">
+        <div id="notifications">
+            <div class="row">
+                <span id="total-messages" class="col-6">
+                    <i class="fa fa-envelope-open-o"></i>
+                    15
+                </span>
+                <span id="new-messages" class="col-6">
+                    <i class="fa fa-envelope-o"></i>
+                    20
+                </span>                
+            </div>
+        </div>
+        <div id="items">
+            <ul>
+                <li to="/user">
+                    Profile
+                    <i class="fa fa-user"></i>
+                </li>        
+                <li to="/messages">
+                    My Messages
+                    <i class="fa fa-envelope-open-o"></i>
+                </li>
+                <li to="/settings">
+                    Settings
+                    <i class="fa fa-cogs"></i>
+                </li>
+                <li>
+                    About Us
+                    <i class="fa fa-users"></i>
+                </li>
+                <li>
+                    Contact Us
+                    <i class="fa fa-pencil-square-o"></i>
+                </li>
+                <li>
+                    Logout
+                    <i class="fa fa-sign-out"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <% } else { %>
+    <!-- else -->
+    <header>
+        <span id="username">Hello, User</span><br>
+        <span id="bio">Login or Register Here </span>
+        <hr style="margin-bottom:0">
+    </header>
+    <div id="contain">
+        <div id="items">
+            <ul>
+                <a href="/login">
+                    <li>
+                        Login
+                        <i class="fa fa-sign-in"></i>
+                    </li>                
+                </a>
+                <a href="/register">
+                    <li>
+                        Register
+                        <i class="fa fa-sign-out"></i>
+                    </li>        
+                </a>
+            </ul>
+        </div>
+    </div>
+    <% } %>
+</nav>
