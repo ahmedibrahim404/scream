@@ -1,2 +1,2 @@
 # Scream
-## clone for ASK.FM Application
+clone for ASK.FM Application
