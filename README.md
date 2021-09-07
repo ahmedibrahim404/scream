@@ -27,6 +27,7 @@ node index
 ![alt text](https://github.com/ahmedibrahim404/scream/blob/main/live_screenshots/6.png?raw=true)
 ![alt text](https://github.com/ahmedibrahim404/scream/blob/main/live_screenshots/7.png?raw=true)
 ![alt text](https://github.com/ahmedibrahim404/scream/blob/main/live_screenshots/8.png?raw=true)
+![alt text](https://github.com/ahmedibrahim404/scream/blob/main/live_screenshots/10.png?raw=true)
 
 
 
