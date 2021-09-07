@@ -14,7 +14,11 @@
 
     <!-- If Logged in -->
     <header>
-        <img id="profile-img" src="https://placehold.it/150/150" />
+        <% if(isImg) { %>
+            <img style="width: 150px;height:150px" src="/storage/user_imgs/<%= username %>.png" alt="">
+        <% } else { %>
+            <img src="http://placehold.it/150/150" alt="">
+        <% } %>
         <hr>
         <span id="username"><%= username %></span><br>
         <span id="bio">Live Your Life ^</span>

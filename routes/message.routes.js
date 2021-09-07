@@ -33,6 +33,7 @@ router.get('/messages', function(req,res){
                                 if(messageOne == messages.length - 1){
                                     res.render('components/messages', {
                                         username:req.session.username,
+                                        isImg: req.session.isImg,
                                         messages
                                     });
                                 }
@@ -43,6 +44,7 @@ router.get('/messages', function(req,res){
                     } else {
                         res.render('components/messages', {
                             username:req.session.username ? req.session.username : undefined,
+                            isImg: req.session.isImg,
                             messages:[]
                         });       
                     }
@@ -74,6 +76,7 @@ router.post('/message/:id', function(req,res){
 
             res.render('messages/sendmessage', {
                 username:req.session.username ? req.session.username : undefined,
+                isImg: req.session.isImg,
                 error:"User Not Found!",
             });
 
@@ -82,6 +85,7 @@ router.post('/message/:id', function(req,res){
 
         res.render('messages/sendmessage', {
             username:req.session.username ? req.session.username : undefined,
+            isImg: req.session.isImg,
             error:"Error Not ID Inserted!",
         });
 

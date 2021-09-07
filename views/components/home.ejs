@@ -1,3 +1,7 @@
+<%- include('../main/header'); %>
+
+<%- include('../components/navbar'); %>
+
 <section class="home">
     <div class="container">
         <!-- <h3>Hello <%= username %></h3> -->
@@ -5,21 +9,26 @@
             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                 <div id="profile_home">
                     <!-- <div class="row"> -->
-                    <img src="https://placehold.it/75/75" alt="">
+                    <% if(isImg) { %>
+                        <img style="width: 75px;height:75px" src="/storage/user_imgs/<%= username %>.png" alt="">
+                    <% } else { %>
+                        <img src="https://placehold.it/75/75" alt="">
+                    <% } %>
+                
                     <div id="users">
-                        <div id="fullname">Ahmed Ibrahim</div>
-                        <div id="username">@eka_developer</div>        
+                        <div id="fullname"><%= username %></div>
+                        <div id="username">@<%= username %></div>        
                     </div>
                     <!-- </div> -->
                     <div id="some_inf" class="row">
                         <div class="col-lg-4 col-sm-4">
-                            Messages <br><span>15</span>
+                            Messages <br><span>0</span>
                         </div>
                         <div class="col-lg-4 col-sm-4">
-                            Posts <br><span>15</span>
+                            Posts <br><span>0</span>
                         </div>
                         <div class="col-lg-4 col-sm-4">
-                            Chats <br><span>15</span>
+                            Chats <br><span>0</span>
                         </div>
                     </div>
                 </div>
@@ -53,3 +62,4 @@
         </div>
     </div>
 </section>
+<%- include('../main/footer'); %>

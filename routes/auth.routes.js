@@ -76,7 +76,7 @@ router.post('/login', function(req,res){
 
             } else {
 
-                res.render('auth/login',{
+                res.redirect('auth/login',{
                     errors: [ "Wrong Username or Passowrd!" ],
                     username:req.body.username,
                     password:req.body.password
@@ -91,8 +91,9 @@ router.post('/login', function(req,res){
 
 router.get('/', function(req, res, next) {
     if(req.session.loggedin){
-        res.render('index',{
-            username:req.session.username
+        res.render('components/home',{
+            username:req.session.username,
+            isImg:req.session.isImg
         });
     } else {
         res.redirect('/login');

@@ -31,6 +31,7 @@ router.get('/user/:id', function(req,res){
                     } else {
                         res.render('messages/sendmessage', {
                             username:req.session.username ? req.session.username : undefined,
+                            isImg: req.session.isImg,
                             error:"Error Not Found User!",
                         });
                     }
